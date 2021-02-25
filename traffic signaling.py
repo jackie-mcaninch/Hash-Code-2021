@@ -6,7 +6,7 @@ Created on Thu Feb 25 12:04:18 2021
 """
 
 files = ["a", "b", "c", "d", "e", "f"]
-files = ["a"]
+#files = ["a"]
 for file in files:
     #FILE CREATION
     f_in = open("Input Files/"+file+".txt", "r")
@@ -34,6 +34,9 @@ for file in files:
     print("Bonus Points: " + str(f))
     
     dict = {}
+    intersections = {}
+    for n in range(i):
+        intersections[n] = []
     pnames = []
     count = 0
     while True:
@@ -51,13 +54,16 @@ for file in files:
             break
         
         #print(line)
+        #EVALUATE SET OF STREETS
         if(line[1].isnumeric()):
             streetname = line[2]
             b = line[0]
             e = line[1]
             l = line[3]
+            intersections[int(e)].append(streetname)
             if streetname not in dict:
                 dict[streetname] = [b,e,l]
+        #EVALUATE SET OF CARS
         else:
             count = count + 1
             p = int(line[0])
@@ -65,11 +71,16 @@ for file in files:
             for j in range(p):
                 pnames[count-1].append(line[j+1])
                 
-        print(dict)
-        print("")
-        print(pnames)
         
-        
+    #WRITE OUTPUT
+    lst = []
+    f_out.write(str(i)+"\n")             #write how many intersections to schedule
+    for n in range(i):
+        f_out.write(str(n)+"\n")         #write ID of intersection
+        f_out.write(str(len(intersections[n]))+"\n")
+        for street in intersections[n]:
+            f_out.write(street+" 3\n")
+        lst = []
     
     
     """  
