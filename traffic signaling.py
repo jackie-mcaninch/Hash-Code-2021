@@ -4,18 +4,35 @@ Created on Thu Feb 25 12:04:18 2021
 
 @author: jacki
 """
-files = ["a", "b", "c", "d", "e"]
+files = ["a", "b", "c", "d", "e", "f"]
 
 for file in files:
     #FILE CREATION
-    f_in = open(file+".txt", "r")
+    f_in = open("Input Files/"+file+".txt", "r")
     f_out = open(file+"_out.txt", "w")
+    
+    d = 0 #Duration of simulation in seconds
+    i = 0 #number of intersections (with ids from 0 to i-1)
+    s = 0 #number of streets
+    v = 0 #number of cars
+    f = 0 #bonus points for each car that reaches the destination before time D
     
     #PARSE LINE 1
     line1 = (f_in.readline()).split()
-    num_pizzas = int(line1[0])
-    num_groups = [line1[1], line1[2], line1[3]] #total groups of 2,3, and 4
-        
+    print(line1)
+    d = int(line1[0])
+    i = int(line1[1])
+    s = int(line1[2])
+    v = int(line1[3])
+    f = int(line1[4])
+    print("\n"+file)
+    print("Duration: " + str(d))
+    print("Intersections: " + str(i))
+    print("Streets: " + str(s))
+    print("Cars: " + str(v))
+    print("Bonus Points: " + str(f))
+    
+    """  
     #STORE ALL GIVEN DATA
     for i in range(num_pizzas):
         pizzas[i] = (f_in.readline()).split()
@@ -37,6 +54,6 @@ for file in files:
         for pizza in deliv:
             f_out.write(" "+str(pizza))
         f_out.write("\n")
-    
+    """
 f_in.close()
 f_out.close()
