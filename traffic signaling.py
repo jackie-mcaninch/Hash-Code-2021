@@ -79,33 +79,10 @@ for file in files:
         f_out.write(str(n)+"\n")         #write ID of intersection
         f_out.write(str(len(intersections[n]))+"\n")
         for street in intersections[n]:
-            f_out.write(street+" 3\n")
+            f_out.write(street+" 1\n")
         lst = []
     
-    
-    """  
-    #STORE ALL GIVEN DATA
-    for i in range(num_pizzas):
-        pizzas[i] = (f_in.readline()).split()
-        
-    #WRITE OUTPUT
-    f_out.write(str(len(deliveries2)+len(deliveries3)+len(deliveries4))+"\n")
-    for deliv in deliveries2:                   #GROUPS OF 2
-        f_out.write("2")
-        for pizza in deliv:
-            f_out.write(" "+str(pizza))
-        f_out.write("\n")
-    for deliv in deliveries3:                   #GROUPS OF 3
-        f_out.write("3")
-        for pizza in deliv:
-            f_out.write(" "+str(pizza))
-        f_out.write("\n")
-    for deliv in deliveries4:                   #GROUPS OF 4
-        f_out.write("4")
-        for pizza in deliv:
-            f_out.write(" "+str(pizza))
-        f_out.write("\n")
-    """
+
 f_in.close()
 f_out.close()
 
